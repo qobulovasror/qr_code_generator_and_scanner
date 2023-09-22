@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR scanner</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="text-center p-3">QR scanner</h2>
+      <div class="d-flex justify-content-around">
+        <div class="col-md-4">
+          <div class="card p-3 mt-2">
+            <h3 class="text-center">Data to QR code</h3>
+            <form
+              action="/dataToCode"
+              method="get"
+              enctype="multipart/form-data"
+            >
+              <div class="mb-3">
+                <label for="url" class="form-label"
+                  >Enter data (text or url)</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="url"
+                  name="data"
+                  placeholder="data or url"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <%if(textToCodeResult){%>
+            <div class="row">
+              <div class="col"></div>
+              <div class="col">
+                <img
+                  src="<%=textToCodeResult%>"
+                  alt="result code"
+                  width="300px"
+                />
+              </div>
+              <div class="col"></div>
+            </div>
+            <%}%>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card p-3 mt-2">
+            <h3 class="text-center">QR code to data (or url)</h3>
+            <form
+              action="/upload"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <div class="mb-3">
+                <label for="file" class="form-label"
+                  >Upload file</label
+                >
+                <input
+                  type="file"
+                  class="form-control"
+                  id="file"
+                  name="file"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <%if(codeToDaraResult){%>
+            <h1 style="font-size: 30px; text-align: center;" ><%=codeToDaraResult%></a>
+            <%}%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

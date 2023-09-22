@@ -14,6 +14,9 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "express-fileupload": "^1.4.0"
+    "express-fileupload": "^1.4.0",
+    "jimp": "^0.22.10",
+    "qrcode": "^1.5.3",
+    "qrcode-reader": "^1.0.4"
   }
 }
